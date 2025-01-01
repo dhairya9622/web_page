@@ -1,9 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import {useRouter} from "next/navigation";
 
 
 export default function Hero() {
+  const router = useRouter();
+  const handleOnClick = () => {
+    router.push('/chat')
+  }
   return (
       <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -30,7 +35,7 @@ export default function Hero() {
 
             {/* Sparkle Button */}
             <div className="sp">
-              <button className="sparkle-button">
+              <button className="sparkle-button" onClick={handleOnClick}>
                 <span className="spark"></span>
                 <span className="backdrop"></span>
                 <svg

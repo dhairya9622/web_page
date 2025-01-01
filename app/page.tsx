@@ -8,6 +8,7 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import ScrollSection from '@/components/ScrollSection';
+import ChatPage from "@/app/chat/page";
 
 const jigsawVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -83,6 +84,7 @@ export default function Home() {
                   </motion.div>
               ))}
           </motion.main>
+
       </ParallaxProvider>
     <footer>Dhairya Gajjar. @2025</footer>
     </>

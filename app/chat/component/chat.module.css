@@ -1,0 +1,69 @@
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #0e1726;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #2c3546;
+    border-radius: 10px;
+    border: 2px solid #0e1726;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #3c4656;
+}
+
+/* src/styles/textbox.css */
+.input {
+    background-color: #05071b;
+    border: none;
+    width: 301px;
+    height: 56px;
+    border-radius: 10px;
+    color: #a9c7ff;
+    padding-inline: 59px;
+    font-size: 18px;
+}
+
+.input::placeholder {
+    color: #6e8cff;
+}
+
+.input:focus {
+    outline: none;
+}
+
+#main:focus-within > #input-mask {
+    display: none;
+}
+
+#input-mask {
+    pointer-events: none;
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    background: linear-gradient(90deg, transparent, #05071b);
+    top: 18px;
+    left: 70px;
+}
+
+#cosmic-glow {
+    pointer-events: none;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    background: #4d6dff;
+    top: 10px;
+    left: 5px;
+    filter: blur(20px);
+    opacity: 0.8;
+    transition: all 2s;
+}
+
+#main:hover > #cosmic-glow {
+    opacity: 0;
+}
