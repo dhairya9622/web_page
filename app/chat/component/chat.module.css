@@ -67,3 +67,25 @@
 #main:hover > #cosmic-glow {
     opacity: 0;
 }
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #4d6dff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
