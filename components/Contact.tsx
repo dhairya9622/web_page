@@ -14,7 +14,7 @@ export default function Contact() {
   return (
       <section
           id="contact"
-          className="min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364]"
+          className="min-h-screen flex items-center justify-center"
       >
         <div className="max-w-2xl w-full">
           <h2 className="text-4xl font-extrabold text-center text-white mb-12 tracking-wide">

@@ -20,7 +20,7 @@ const clients = [
 
 export default function Team() {
   return (
-    <section id="team" className="min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+    <section id="team" className="min-h-screen flex items-center justify-center">
       <div>
         <h2 className="text-3xl font-extrabold text-center mb-12">Our Clients</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center justify-items-center max-w-6xl mx-auto">
