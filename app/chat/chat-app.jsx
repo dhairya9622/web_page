@@ -88,8 +88,8 @@ export function ChatApp() {
     };
 
     return (
-        <div className="relative z-10 flex flex-col h-screen">
-            <div className="flex-1 overflow-y-auto px-6 py-4 custom-scrollbar" style={{ paddingBottom: '5rem' }}>
+        <div className="relative z-10 flex flex-col h-[90vh]">
+            <div className="flex-1 overflow-y-auto px-6 py-4 custom-scrollbar">
                 <MessageContainer messages={messages} />
                 <div ref={messagesEndRef} />
             </div>
@@ -97,7 +97,7 @@ export function ChatApp() {
             <div className="flex items-center justify-center p-4">
                 <div className="fixed bottom-8 w-full max-w-3xl flex items-center justify-center">
                     <div
-                        className="flex w-full max-w-3xl rounded-full bg-[#1e2c3f] px-4 py-2 shadow-inner shadow-[#0c0f14]"
+                        className="flex w-full max-w-3xl rounded-full bg-[#1e3a57] px-4 py-2"
                     >
                         <TextArea
                             value={userInput}
