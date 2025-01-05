@@ -14,12 +14,12 @@
 
 .pl__ring--b {
     animation-name: ringB;
-    stroke: var(--color-b, #7e7e7e);
+    stroke: var(--color-b, #ffffff);
 }
 
 .pl__ring--c {
     animation-name: ringC;
-    stroke: var(--color-c, #686868);
+    stroke: var(--color-c, #ffffff);
 }
 
 .pl__ring--d {

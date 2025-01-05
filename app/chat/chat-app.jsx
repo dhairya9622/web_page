@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MessageContainer } from "@/app/chat/component/MessageContainer";
 import { TextArea } from "@/app/chat/component/TextArea";
 import { v4 as uuidv4 } from 'uuid'; // Import UUID
+import "./component/chat.module.css"
 
 export function ChatApp() {
     const [messages, setMessages] = useState([
@@ -88,8 +89,8 @@ export function ChatApp() {
     };
 
     return (
-        <div className="relative z-10 flex flex-col h-[90vh]">
-            <div className="flex-1 overflow-y-auto px-6 py-4 custom-scrollbar">
+        <div className="relative z-10 flex flex-col h-[90vh] custom-scrollbar">
+            <div className="flex-1 overflow-y-auto px-6 py-4 ">
                 <MessageContainer messages={messages} />
                 <div ref={messagesEndRef} />
             </div>

@@ -1,20 +1,20 @@
 
 .custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
+    width: 8px !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: #0e1726;
+    background: #0e1726 !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: #2c3546;
-    border-radius: 10px;
-    border: 2px solid #0e1726;
+    background-color: #2c3546 !important;
+    border-radius: 10px !important;
+    border: 2px solid #0e1726 !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: #3c4656;
+    background-color: #3c4656 !important;
 }
 
 /* src/styles/textbox.css */
