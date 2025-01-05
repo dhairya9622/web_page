@@ -35,7 +35,7 @@ export default function Home() {
       <>
       <ParallaxProvider>
           <motion.main
-              className="snap-y snap-mandatory h-screen overflow-y-scroll"
+              className="snap-y snap-mandatory h-[96vh] overflow-y-scroll scrollbar-hidden"
               initial="initial"
               animate="animate"
           >

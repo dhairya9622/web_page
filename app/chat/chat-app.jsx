@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MessageContainer } from "@/app/chat/component/MessageContainer";
 import { TextArea } from "@/app/chat/component/TextArea";
 import { v4 as uuidv4 } from 'uuid'; // Import UUID
-import "./component/chat.module.css"
+import "./chat-app.css"
 
 export function ChatApp() {
     const [messages, setMessages] = useState([
@@ -89,14 +89,14 @@ export function ChatApp() {
     };
 
     return (
-        <div className="relative z-10 flex flex-col h-[90vh] custom-scrollbar">
-            <div className="flex-1 overflow-y-auto px-6 py-4 ">
+        <div className="relative z-10 flex flex-col h-[90vh]">
+            <div className="flex-1 overflow-y-auto px-6 py-4 overflow-y-auto custom-scrollbar">
                 <MessageContainer messages={messages} />
                 <div ref={messagesEndRef} />
             </div>
 
             <div className="flex items-center justify-center p-4">
-                <div className="fixed bottom-8 w-full max-w-3xl flex items-center justify-center">
+                <div className="fixed bottom-8 w-full max-w-4xl flex items-center px-3 justify-center">
                     <div
                         className="flex w-full max-w-3xl rounded-full bg-[#1e3a57] px-4 py-2"
                     >

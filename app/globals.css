@@ -10,9 +10,6 @@ body {
   overflow: auto; /* Allows scrolling */
 }
 
-::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar */
-}
 
 @layer utilities {
   .text-balance {
