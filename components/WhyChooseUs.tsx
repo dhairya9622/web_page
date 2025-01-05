@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle } from 'lucide-react'
+import "@/app/globals.css";
 
 const reasons = [
   'Cutting-edge AI and machine learning expertise',
@@ -15,7 +16,7 @@ const reasons = [
 export default function WhyChooseUs() {
   return (
     <section id="why-choose-us" className="min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto whychoseus">
         <h2 className="text-3xl font-extrabold text-center mb-12">Why Choose Our AI & Data Solutions</h2>
         <ul className="space-y-4">
           {reasons.map((reason, index) => (
@@ -27,7 +28,7 @@ export default function WhyChooseUs() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-              <span>{reason}</span>
+              <span className='reason'>{reason}</span>
             </motion.li>
           ))}
         </ul>

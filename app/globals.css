@@ -420,3 +420,21 @@ body {
   inline-size: 1.25em;
   translate: -25% -5%;
 }
+
+.text-center {
+  color: white;
+}
+
+.service-card{
+  color: white;
+}
+
+.reason{
+  color: white;
+}
+
+.whychoseus{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
