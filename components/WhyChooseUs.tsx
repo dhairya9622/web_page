@@ -15,7 +15,7 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="min-h-screen flex items-center justify-center">
+    <section id="why-choose-us" className="flex items-center justify-center">
       <div className="max-w-3xl mx-auto whychoseus">
         <h2 className="text-3xl font-extrabold text-center mb-12">Why Choose Our AI & Data Solutions</h2>
         <ul className="space-y-4">

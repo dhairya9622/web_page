@@ -10,11 +10,11 @@ const clients = [
   },
   { 
     name: 'Marlabs LLC', 
-    logo: '../assets/Marlabs_Logo.svg'
+    logo: '/assets/Marlabs_Logo.png'
   },
   {
     name: 'Liberty General Insurance',
-    logo: ''
+    logo: '/assets/liberty-general.png'
   }
 ]
 
