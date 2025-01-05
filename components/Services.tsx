@@ -21,13 +21,13 @@ const services = [
 ];
 
 const jigsawVariants = {
-  hidden: (index) => ({
+  hidden: (index : number) => ({
     opacity: 0,
     x: index % 2 === 0 ? -100 : 100, // Alternate blocks slide from left or right
     y: index % 2 === 0 ? -100 : 100, // Alternate blocks slide from top or bottom
     scale: 0.8,
   }),
-  visible: (index) => ({
+  visible: (index : number) => ({
     opacity: 1,
     x: 0,
     y: 0,
