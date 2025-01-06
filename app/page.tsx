@@ -26,7 +26,6 @@ export default function Home() {
   const sections = [
     { component: <Hero />, key: 'hero' },
     { component: <Services />, key: 'services' },
-    { component: <WhyChooseUs />, key: 'whychooseus' },
     { component: <Team />, key: 'team' },
     { component: <Contact />, key: 'contact' },
   ];

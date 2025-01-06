@@ -2,8 +2,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageContainer } from "@/app/chat/component/MessageContainer";
 import { TextArea } from "@/app/chat/component/TextArea";
-import { v4 as uuidv4 } from 'uuid'; // Import UUID
 import "./chat-app.css"
+import { v4 as uuidv4 } from 'uuid';
+import {SendIcon} from "lucide-react"; // Import UUID
 
 export function ChatApp() {
     const [messages, setMessages] = useState([
@@ -38,44 +39,47 @@ export function ChatApp() {
         setMessages((prevMessages) => [...prevMessages, userMessage, { id: uuidv4(), type: 'loading' }]);
         setUserInput('');
 
-        setTimeout(async () => {
-            try {
-                const response = await fetch('https://dev5.dhairya.io/getResponse', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        prompt: userInput || '',
-                        threadId: threadId,
-                    }),
-                });
+        try {
+            const response = await fetch('https://dev5.dhairya.io/getResponse', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    prompt: userInput || '',
+                    threadId: threadId,
+                }),
+            });
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.text();
-                const lines = data
-                    .split('\n')
-                    .map((line) => line.trim())
-                    .filter((line) => line !== '');
-
-                const serverMessages = lines.map((line) => ({ id: uuidv4(), type: 'server', text: line }));
-
-                setMessages((prevMessages) => [
-                    ...prevMessages.slice(0, -1), // Remove the loader
-                    ...serverMessages, // Add server response
-                ]);
-            } catch (error) {
-                console.error('Error:', error);
-                setMessages((prevMessages) => [
-                    ...prevMessages.slice(0, -1), // Remove the loader
-                    { id: uuidv4(), type: 'server', text: 'Error: Could not get a response from the server.' },
-                ]);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        }, 1500); // Simulated delay
+
+            const data = await response.text();
+            const lines = data
+                .split('\n')
+                .map((line) => line.trim())
+                .filter((line) => line !== ''); // Ensure no empty lines are included
+
+            const serverMessages = lines.map((line) => ({
+                id: uuidv4(),
+                type: 'server',
+                text: line,
+            }));
+
+            setMessages((prevMessages) => [
+                ...prevMessages.slice(0, -1), // Remove the loader
+                ...serverMessages,
+            ]);
+        } catch (error) {
+            console.error('Error:', error);
+            setMessages((prevMessages) => [
+                ...prevMessages.slice(0, -1),
+                { id: uuidv4(), type: 'server', text: 'Error: Could not get a response from the server.' },
+            ]);
+        }
     };
+
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -89,8 +93,8 @@ export function ChatApp() {
     };
 
     return (
-        <div className="relative z-10 flex flex-col h-[90vh]">
-            <div className="flex-1 overflow-y-auto px-6 py-4 overflow-y-auto custom-scrollbar">
+        <div className="relative z-10 flex flex-col h-[94vh]">
+            <div className="flex-1 overflow-y-auto px-6 py-4 custom-scrollbar" style={{ paddingBottom: '5rem' }}>
                 <MessageContainer messages={messages} />
                 <div ref={messagesEndRef} />
             </div>
@@ -115,25 +119,5 @@ export function ChatApp() {
                 </div>
             </div>
         </div>
-    );
-}
-
-function SendIcon(props) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="m22 2-7 20-4-9-9-4Z" />
-            <path d="M22 2 11 13" />
-        </svg>
     );
 }

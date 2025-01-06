@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './loader.css'; // Import the corresponding CSS
 
-const AdvancedLoader = ({ size = 2, colorA = '#000000', colorB = '#1e3a57', colorC = '#1e3a57', colorD = '#000000' }) => {
+const AdvancedLoader = ({ size = 6, colorA = '#000000', colorB = '#7e7e7e', colorC = '#686868', colorD = '#000000' }) => {
     // Inline styles to adjust the size based on props
     const loaderStyle = {
         width: `${size}em`,
