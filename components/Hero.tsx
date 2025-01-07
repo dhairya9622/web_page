@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import {useRouter} from "next/navigation";
 import "@/app/globals.css";
+import EnhancedForm from "@/components/Input";
 
 
 export default function Hero() {
@@ -30,6 +31,7 @@ export default function Hero() {
             Transforming Businesses with Intelligent Solutions
           </motion.p>
 
+          <EnhancedForm/>
           {/* Buttons Section */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             {/* Button85 */}
