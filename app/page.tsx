@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
-import WhyChooseUs from '@/components/WhyChooseUs';
 import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import ScrollSection from '@/components/ScrollSection';

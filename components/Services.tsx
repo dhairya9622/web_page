@@ -2,12 +2,7 @@
 import { motion } from 'framer-motion';
 import {
   Brain,
-  Database,
-  LineChart,
-  Cpu,
   Code,
-  Server,
-  Layout,
   Link,
   CloudCog,
   FolderCode,
@@ -29,13 +24,13 @@ const services = [
 ];
 
 const jigsawVariants = {
-  hidden: (index) => ({
+  hidden: (index : number) => ({
     opacity: 0,
     x: index % 2 === 0 ? -100 : 100,
     y: index % 2 === 0 ? -100 : 100,
     scale: 0.8,
   }),
-  visible: (index) => ({
+  visible: (index : number) => ({
     opacity: 1,
     x: 0,
     y: 0,

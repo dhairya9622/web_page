@@ -12,7 +12,7 @@ const EnhancedForm = () => {
         setIsLoaded(true);
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Optional: handle the email value before redirect if needed
         router.push("/chat");
