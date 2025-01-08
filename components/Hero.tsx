@@ -1,18 +1,25 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import {useRouter} from "next/navigation";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import "@/app/globals.css";
-import EnhancedForm from "@/components/Input";
-
 
 export default function Hero() {
   const router = useRouter();
+
   const handleOnClick = () => {
-    router.push('/chat')
-  }
+    router.push("/form");
+  };
+
   return (
-      <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <motion.section
+          id="hero"
+          className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+      >
         <div className="text-center">
           <motion.h1
               className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4"
@@ -31,12 +38,7 @@ export default function Hero() {
             Transforming Businesses with Intelligent Solutions
           </motion.p>
 
-          <EnhancedForm/>
-          {/* Buttons Section */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* Button85 */}
-
-            {/* Sparkle Button */}
             <div className="sp">
               <button className="sparkle-button" onClick={handleOnClick}>
                 <span className="spark"></span>
@@ -55,11 +57,11 @@ export default function Hero() {
                       strokeLinejoin="round"
                   ></path>
                 </svg>
-                <span className="text">Chat with My AI assistant</span>
+                <span className="text">Chat with My AI Assistant</span>
               </button>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
   );
 }

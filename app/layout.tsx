@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import BackgroundPattern from "@/components/BackgroundPattern";
+import {AnimatePresence} from "framer-motion";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,7 +30,7 @@ export default function RootLayout({
       <head />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
       <BackgroundPattern></BackgroundPattern>
-      {children}
+      <AnimatePresence mode="wait">{children}</AnimatePresence>
       </body>
 
       </html>
