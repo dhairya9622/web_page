@@ -127,7 +127,7 @@ const EnhancedForm = () => {
                             py-2
                             rounded-md
                             border
-                            border-sky-400
+                            bg-black
                             bg-gray-950
                             text-sky-400
                             font-medium
@@ -143,7 +143,7 @@ const EnhancedForm = () => {
                         <span
                             className="
                                 bg-sky-400
-                                shadow-sky-400
+                                blue
                                 absolute
                                 -top-[150%]
                                 left-0
@@ -157,7 +157,7 @@ const EnhancedForm = () => {
                                 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]
                             "
                         />
-                        &gt;&gt;&gt;
+                        &gt;
                     </button>
                 </div>
             </form>
