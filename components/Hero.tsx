@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import "@/app/globals.css";
+import SocialIcons from "@/components/SocialIcons";
 
 export default function Hero() {
   const router = useRouter();
@@ -61,7 +62,10 @@ export default function Hero() {
               </button>
             </div>
           </div>
+          <SocialIcons/>
+
         </div>
+
       </motion.section>
   );
 }

@@ -22,7 +22,7 @@ export default function Team() {
   return (
     <section id="team" className="min-h-screen flex items-center justify-center">
       <div>
-        <h2 className="text-3xl font-extrabold text-center mb-12">Our Clients</h2>
+        <h2 className="text-3xl font-extrabold text-center mb-12">Organizations I've Contributed To</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center justify-items-center max-w-6xl mx-auto">
           {clients.map((client, index) => (
             <motion.div

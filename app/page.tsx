@@ -31,59 +31,60 @@ export default function Home() {
 
   return (
       <>
-      <ParallaxProvider>
-          <motion.main
-              className="snap-y snap-mandatory h-[96vh] overflow-y-scroll scrollbar-hidden"
-              initial="initial"
-              animate="animate"
-          >
-              {/* Background Parallax Effect */}
-              <ParallaxBanner
-                  layers={[
-                      {speed: -30,
-                          children: <div
-                              className="absolute inset-0 bg-gradient-to-b from-[#0a192f] to-[#112240] opacity-70"/>
-                      },
-                  ]}
-                  className="absolute inset-0"
-              />
+          <ParallaxProvider>
+              <motion.main
+                  className="snap-y snap-mandatory h-[96vh] overflow-y-scroll scrollbar-hidden"
+                  initial="initial"
+                  animate="animate"
+              >
+                  {/* Background Parallax Effect */}
+                  <ParallaxBanner
+                      layers={[
+                          {
+                              speed: -30,
+                              children: <div
+                                  className="absolute inset-0 bg-gradient-to-b from-[#0a192f] to-[#112240] opacity-70"/>
+                          },
+                      ]}
+                      className="absolute inset-0"
+                  />
 
-              {sections.map((section, index) => (
-                  <motion.div
-                      key={section.key}
-                      className="relative min-h-screen flex justify-center items-center"
-                      initial="hidden"
-                      animate="visible"
-                      whileInView="visible"
-                      viewport={{once: true, amount: 0.5}}
-                  >
+                  {sections.map((section, index) => (
                       <motion.div
-                          custom={index}
-                          variants={jigsawVariants}
-                          className="absolute top-0 left-0 w-1/2 h-1/2 bg-transparent"
-                      />
-                      <motion.div
-                          custom={index + 1}
-                          variants={jigsawVariants}
-                          className="absolute top-0 right-0 w-1/2 h-1/2 bg-transparent"
-                      />
-                      <motion.div
-                          custom={index + 2}
-                          variants={jigsawVariants}
-                          className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-transparent"
-                      />
-                      <motion.div
-                          custom={index + 3}
-                          variants={jigsawVariants}
-                          className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-transparent"
-                      />
-                      <ScrollSection>{section.component}</ScrollSection>
-                  </motion.div>
-              ))}
-          </motion.main>
+                          key={section.key}
+                          className="relative min-h-screen flex justify-center items-center"
+                          initial="hidden"
+                          animate="visible"
+                          whileInView="visible"
+                          viewport={{once: true, amount: 0.5}}
+                      >
+                          <motion.div
+                              custom={index}
+                              variants={jigsawVariants}
+                              className="absolute top-0 left-0 w-1/2 h-1/2 bg-transparent"
+                          />
+                          <motion.div
+                              custom={index + 1}
+                              variants={jigsawVariants}
+                              className="absolute top-0 right-0 w-1/2 h-1/2 bg-transparent"
+                          />
+                          <motion.div
+                              custom={index + 2}
+                              variants={jigsawVariants}
+                              className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-transparent"
+                          />
+                          <motion.div
+                              custom={index + 3}
+                              variants={jigsawVariants}
+                              className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-transparent"
+                          />
+                          <ScrollSection>{section.component}</ScrollSection>
+                      </motion.div>
+                  ))}
+              </motion.main>
 
-      </ParallaxProvider>
-    <footer>Dhairya Gajjar. @2025</footer>
-    </>
+          </ParallaxProvider>
+
+      </>
   );
 }
