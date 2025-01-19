@@ -42,7 +42,7 @@ export default function Contact() {
 
         try {
             // Email validation
-            const emailValidationResponse = await fetch('http://3.109.153.248:8080/api/verify-email', {
+            const emailValidationResponse = await fetch('https://chat.dhairyagajjar.com/api/verify-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: formState.email }),
@@ -57,7 +57,7 @@ export default function Contact() {
 
             if (emailValidationResult.includes('valid')) {
                 // Submit form data
-                const response = await fetch('http://3.109.153.248:8080/api/contact', {
+                const response = await fetch('https://chat.dhairyagajjar.com/api/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formState),

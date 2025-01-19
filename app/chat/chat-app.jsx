@@ -24,7 +24,7 @@ export function ChatApp() {
 
     const createThreadId = async () => {
       try {
-        const response = await fetch("http://3.109.153.248:8080/createThread", {
+        const response = await fetch("https://chat.dhairyagajjar.com/createThread", {
           method: "GET",
         });
         if (!response.ok) {
@@ -53,7 +53,7 @@ export function ChatApp() {
     setUserInput("");
 
     try {
-      const response = await fetch("http://3.109.153.248:8080/getResponse", {
+      const response = await fetch("https://chat.dhairyagajjar.com/getResponse", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
