@@ -26,7 +26,7 @@ export default function Home() {
     { component: <Hero />, key: 'hero' },
     { component: <Services />, key: 'services' },
     { component: <Team />, key: 'team' },
-    { component: <Contact />, key: 'contact' },
+    { component: <Contact />, key: 'contact', id : "contact"},
   ];
 
   return (
@@ -52,6 +52,7 @@ export default function Home() {
                   {sections.map((section, index) => (
                       <motion.div
                           key={section.key}
+                          id={section.id}
                           className="relative min-h-screen flex justify-center items-center"
                           initial="hidden"
                           animate="visible"

@@ -10,6 +10,11 @@ body {
   overflow: auto; /* Allows scrolling */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 
 @layer utilities {
   .text-balance {
