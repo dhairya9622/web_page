@@ -15,6 +15,7 @@ const EnhancedForm = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Optional: handle the email value before redirect if needed
+        document.cookie = "emailValidated=true; path=/; max-age=3600";
         router.push("/chat");
     };
 
