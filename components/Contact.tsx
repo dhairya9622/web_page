@@ -73,7 +73,7 @@ export default function Contact() {
             } else {
                 setErrors((prev) => ({ ...prev, email: emailValidationResult }));
             }
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error('Error:', error);
             setErrors((prev) => ({
                 ...prev,
