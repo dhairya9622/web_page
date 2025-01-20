@@ -10,7 +10,7 @@ export function ChatApp() {
     {
       id: uuidv4(),
       type: "server",
-      text: "Hello, how can I assist you today regarding our company and services?",
+      text: "Hello, how can I assist you today regarding Dhairya?",
     },
   ]);
   const [userInput, setUserInput] = useState("");
