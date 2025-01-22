@@ -15,7 +15,7 @@ export function ServerMessage({ text }) {
             </div>
             <div
                 className="
-          max-w-xs px-4 py-4 text-white
+          max-w-lg px-4 py-4 text-white
           bg-[#1e3a57]/60
           backdrop-blur-sm
           border border-white/10
