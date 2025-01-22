@@ -21,7 +21,7 @@ const EnhancedForm = () => {
         setError("");
 
         try {
-            const response = await fetch("http://localhost:8080/api/verify-email", {
+            const response = await fetch("https://chat.dhairyagajjar.com/api/verify-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),
@@ -30,7 +30,7 @@ const EnhancedForm = () => {
             if (response.ok) {
                 document.cookie = "emailValidated=true; path=/; max-age=3600";
                 // Insert email before navigating
-                await fetch("http://localhost:8080/api/insert-email", {
+                await fetch("https://chat.dhairyagajjar.com/api/insert-email", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email }),
