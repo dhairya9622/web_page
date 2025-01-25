@@ -9,27 +9,6 @@ import Contact from '@/components/Contact';
 import ScrollSection from '@/components/ScrollSection';
 import "./globals.css"
 
-// Enhanced jigsaw variants with slight tweaks for smoother, more dynamic motion
-const jigsawVariants = {
-    hidden: {
-        opacity: 0,
-        scale: 0.8,
-        rotate: -10,
-        skewX: 10,
-    },
-    visible: (index: number) => ({
-        opacity: 1,
-        scale: 1,
-        rotate: 0,
-        skewX: 0,
-        transition: {
-            delay: index * 0.3,
-            duration: 0.8,
-            ease: [0.42, 0, 0.58, 1],
-        },
-    }),
-};
-
 export default function Home() {
     const sections = [
         { component: <Hero />, key: 'hero' },
@@ -58,7 +37,7 @@ export default function Home() {
                     className="absolute inset-0"
                 />
 
-                {sections.map((section, index) => (
+                {sections.map((section) => (
                     <motion.div
                         key={section.key}
                         id={section.id}
