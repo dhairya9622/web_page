@@ -22,7 +22,7 @@ export default function Team() {
   return (
       <section
           id="team"
-          className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white py-20 px-6"
+          className="min-h-screen flex items-center justify-center text-white py-20 px-6"
       >
         <div>
           <h2 className="text-3xl font-extrabold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">

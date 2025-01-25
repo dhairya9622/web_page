@@ -7,6 +7,7 @@ import Services from '@/components/Services';
 import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import ScrollSection from '@/components/ScrollSection';
+import "./globals.css"
 
 // Enhanced jigsaw variants with slight tweaks for smoother, more dynamic motion
 const jigsawVariants = {
@@ -40,7 +41,7 @@ export default function Home() {
     return (
         <ParallaxProvider>
             <motion.main
-                className="snap-y snap-mandatory h-[96vh] overflow-y-scroll scrollbar-hidden relative"
+                className="snap-y snap-mandatory h-[100vh] overflow-scroll scrollbar-hidden relative"
                 initial="initial"
                 animate="animate"
             >
@@ -67,39 +68,6 @@ export default function Home() {
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.5 }}
                     >
-                        {/* TOP-LEFT CORNER */}
-                        <motion.div
-                            custom={index}
-                            variants={jigsawVariants}
-                            className="absolute top-0 left-0 w-1/2 h-1/2
-                         bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500
-                         opacity-20 blur-2xl rounded-full mix-blend-lighten"
-                        />
-                        {/* TOP-RIGHT CORNER */}
-                        <motion.div
-                            custom={index + 1}
-                            variants={jigsawVariants}
-                            className="absolute top-0 right-0 w-1/2 h-1/2
-                         bg-gradient-to-bl from-blue-500 via-teal-400 to-green-400
-                         opacity-20 blur-2xl rounded-full mix-blend-lighten"
-                        />
-                        {/* BOTTOM-LEFT CORNER */}
-                        <motion.div
-                            custom={index + 2}
-                            variants={jigsawVariants}
-                            className="absolute bottom-0 left-0 w-1/2 h-1/2
-                         bg-gradient-to-tr from-yellow-500 via-orange-500 to-pink-500
-                         opacity-20 blur-2xl rounded-full mix-blend-lighten"
-                        />
-                        {/* BOTTOM-RIGHT CORNER */}
-                        <motion.div
-                            custom={index + 3}
-                            variants={jigsawVariants}
-                            className="absolute bottom-0 right-0 w-1/2 h-1/2
-                         bg-gradient-to-tl from-lime-400 via-green-400 to-blue-400
-                         opacity-20 blur-2xl rounded-full mix-blend-lighten"
-                        />
-
                         <ScrollSection>{section.component}</ScrollSection>
                     </motion.div>
                 ))}
