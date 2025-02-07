@@ -15,22 +15,17 @@ export function ChatApp() {
   ]);
   const [userInput, setUserInput] = useState("");
   const [threadId, setThreadId] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false); // For the container fade-in
+  const [isLoaded, setIsLoaded] = useState(false); // For fade-in
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    // Trigger initial fade-in
     setIsLoaded(true);
 
     const createThreadId = async () => {
       try {
-        const response = await fetch("https://chat.dhairyagajjar.com/createThread", {
-          method: "GET",
-        });
+        const response = await fetch("http://localhost:8080/createThread");
         if (!response.ok) {
-          throw new Error(
-              `Network response was not ok : ${response.statusText}`
-          );
+          throw new Error(`Network response was not ok: ${response.statusText}`);
         }
         const data = await response.text();
         setThreadId(data);
@@ -38,30 +33,28 @@ export function ChatApp() {
         console.error(error);
       }
     };
+
     createThreadId();
   }, []);
 
   const handleSendMessage = async () => {
-    if (!userInput || userInput.trim() === "") return;
+    if (!userInput.trim()) return;
 
+    // Add user message + a "loading" placeholder
     const userMessage = { id: uuidv4(), type: "user", text: userInput };
-    setMessages((prevMessages) => [
-      ...prevMessages,
+    setMessages((prev) => [
+      ...prev,
       userMessage,
-      { id: uuidv4(), type: "loading" },
+      { id: uuidv4(), type: "loading", text: "Loading..." },
     ]);
+
     setUserInput("");
 
     try {
-      const response = await fetch("https://chat.dhairyagajjar.com/getResponse", {
+      const response = await fetch("http://localhost:8080/getResponse", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt: userInput || "",
-          threadId: threadId,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: userInput, threadId }),
       });
 
       if (!response.ok) {
@@ -69,36 +62,26 @@ export function ChatApp() {
       }
 
       const data = await response.text();
-      const lines = data
-          .split("\n")
-          .map((line) => line.trim())
-          .filter((line) => line !== "");
-
-      const serverMessages = lines.map((line) => ({
+      // entire response as one chunk
+      const serverMessage = {
         id: uuidv4(),
         type: "server",
-        text: line,
-      }));
+        text: data,
+      };
 
-      // Add an artificial delay before updating messages
-      setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages.slice(0, -1), // remove the loader
-          ...serverMessages,
-        ]);
-      }, 2000);
+      // Replace the loading message with the server's response
+      setMessages((prev) => [...prev.slice(0, -1), serverMessage]);
     } catch (error) {
       console.error("Error:", error);
-      setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages.slice(0, -1),
-          {
-            id: uuidv4(),
-            type: "server",
-            text: "Error: Could not get a response from the server.",
-          },
-        ]);
-      }, 2000);
+      // Replace the loading message with an error
+      setMessages((prev) => [
+        ...prev.slice(0, -1),
+        {
+          id: uuidv4(),
+          type: "server",
+          text: "Error: Could not get a response from the server.",
+        },
+      ]);
     }
   };
 
@@ -115,7 +98,6 @@ export function ChatApp() {
 
   return (
       <div
-          // Add our custom fade/slide container classes here
           className={`relative z-10 flex flex-col h-[94vh] chat-app-container ${
               isLoaded ? "loaded" : ""
           }`}
@@ -137,7 +119,9 @@ export function ChatApp() {
                   onKeyDown={handleKeyDown}
               />
               <button
-                  className="ml-4 rounded-full bg-gradient-to-r from-[#1e2533] to-[#0f1a2b] px-4 py-2 text-white shadow-md transition-colors hover:bg-gradient-to-br hover:from-[#071121] hover:to-[#1e2533] focus:outline-none focus:ring-2 focus:ring-[#071121] focus:ring-opacity-50"
+                  className="ml-4 rounded-full bg-gradient-to-r from-[#1e2533] to-[#0f1a2b] px-4 py-2 text-white shadow-md transition-colors
+                         hover:bg-gradient-to-br hover:from-[#071121] hover:to-[#1e2533]
+                         focus:outline-none focus:ring-2 focus:ring-[#071121] focus:ring-opacity-50"
                   onClick={handleSendMessage}
               >
                 <SendIcon className="h-4 w-4 transition-transform hover:scale-110 hover:brightness-125" />
