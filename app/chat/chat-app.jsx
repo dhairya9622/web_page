@@ -23,7 +23,7 @@ export function ChatApp() {
 
     const createThreadId = async () => {
       try {
-        const response = await fetch("http://localhost:8080/createThread");
+        const response = await fetch("https://chat.dhairyagajjar.com/createThread");
         if (!response.ok) {
           throw new Error(`Network response was not ok: ${response.statusText}`);
         }
@@ -51,7 +51,7 @@ export function ChatApp() {
     setUserInput("");
 
     try {
-      const response = await fetch("http://localhost:8080/getResponse", {
+      const response = await fetch("https://chat.dhairyagajjar.com/getResponse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: userInput, threadId }),
